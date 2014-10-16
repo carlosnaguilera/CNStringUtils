@@ -26,5 +26,14 @@
 
 - (BOOL)isValidEmail;
 
+/**
+ *  Checks if the receiver is a valid phone number. Taken from http://stackoverflow.com/questions/11433364/nstextcheckingresult-for-phone-numbers
+ *
+ *  @return YES if the receiver is a valid phone number. NO otherwise
+ */
+
+- (BOOL)isValidPhoneNumber;
+
+
 
 @end

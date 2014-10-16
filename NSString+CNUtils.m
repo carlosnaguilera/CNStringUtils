@@ -33,5 +33,31 @@
   return [emailTest evaluateWithObject:self];
 }
 
+- (BOOL)isValidPhoneNumber {
+  
+  NSError *error = nil;
+  NSDataDetector *detector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypePhoneNumber error:&error];
+  
+  NSRange inputRange = NSMakeRange(0, [self length]);
+  NSArray *matches = [detector matchesInString:self options:NSMatchingAnchored range:inputRange];
+  
+  // no match at all
+  if ([matches count] == 0) {
+    return NO;
+  }
+  
+  // found match but we need to check if it matched the whole string
+  NSTextCheckingResult *result = (NSTextCheckingResult *)[matches objectAtIndex:0];
+  
+  if ([result resultType] == NSTextCheckingTypePhoneNumber && result.range.location == inputRange.location && result.range.length == inputRange.length) {
+    // it matched the whole string
+    return YES;
+  }
+  else {
+    // it only matched partial string
+    return NO;
+  }
+}
+
 
 @end
