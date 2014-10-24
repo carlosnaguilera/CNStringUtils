@@ -34,6 +34,15 @@
 
 - (BOOL)isValidPhoneNumber;
 
+/**
+ *  Checks if the receiver contains subString
+ *
+ *  @param subString string which we look for in the receiver
+ *
+ *  @return YES is subString appears in the receiver. NO otherwise
+ */
+
+- (BOOL)contains:(NSString *)subString;
 
 
 @end

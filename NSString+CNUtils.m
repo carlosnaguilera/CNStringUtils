@@ -59,5 +59,15 @@
   }
 }
 
+- (BOOL)contains:(NSString *)subString {
+  
+  NSRange range = [self rangeOfString:subString];
+  if (range.location == NSNotFound) {
+    return NO;
+  }
+  else {
+    return YES;
+  }
+}
 
 @end
