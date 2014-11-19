@@ -8,6 +8,7 @@
 
 #import "NSString+CNUtils.h"
 
+
 @implementation NSString (CNUtils)
 
 - (BOOL)isNumber {
@@ -60,14 +61,22 @@
 }
 
 - (BOOL)contains:(NSString *)subString {
-  
-  NSRange range = [self rangeOfString:subString];
-  if (range.location == NSNotFound) {
-    return NO;
-  }
-  else {
-    return YES;
-  }
+    
+    // containsString has been added in iOS 8
+    if ([self respondsToSelector:@selector(containsString:)]) {
+        
+        return [self containsString:subString];
+    }
+    else {
+        
+        NSRange range = [self rangeOfString:subString];
+        if (range.location == NSNotFound) {
+            return NO;
+        }
+        else {
+            return YES;
+        }
+    }
 }
 
 - (NSArray *)componentsBetweenString:(NSString*) initialString andString:(NSString*) finalString remainTexts:(BOOL)remainsText {

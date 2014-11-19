@@ -6,8 +6,6 @@
 //
 //
 
-
-
 @interface NSString (CNUtils)
 
 /**
@@ -43,9 +41,6 @@
  */
 
 - (BOOL)contains:(NSString *)subString;
-
-// Dada una cadena de texto, una cadena de texto inicial y otra de texto final. Nos devuelve un array que contiene el texto contenido
-// entre las cadenas inicial y final. El array tendrá tantos elementos como apariciones de cadena inicial y final
 
 /**
  *  Returns an array containing substrings from the receiver that have been divided by initialString and finalString.
